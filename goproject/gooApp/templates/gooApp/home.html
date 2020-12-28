@@ -1,0 +1,30 @@
+{% extends 'gooApp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container text-dark mt-5">
+  <div class="col-md-5 p-3">
+    <h1>My Google login project</h1>
+
+
+    {% if user.is_authenticated %}
+
+
+    <p>welcome, {{user.username}}</p>
+    <p>Fill some info for user_authentication purpose</p>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form|crispy}}
+        <input type="submit" value="Submit">
+    </form>
+
+
+    {% else %}
+
+    <h1>welcome Friends,Please log in </h1>
+    <a class="btn btn-outline dark" href="/signup">Login here</a>
+
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

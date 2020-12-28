@@ -1,0 +1,20 @@
+{% extends 'gooApp/base.html' %}
+{% load socialaccount %}
+{% providers_media_js %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="mt-4 mb-4 p-4 col-lg-4 mx-auto rounded border">
+   <form action="/signup/" method="post">
+     {% csrf_token %}<br>
+       <img src="https://marketingland.com/wp-content/ml-loads/2014/07/google-logo-black-1920-800x450.jpg" height="125px" width="456.5px" class=" img rounded " alt="">
+       <a href="{% provider_login_url 'google' %}" class="btn btn-info w-100">Signup here</a>
+       <br><br><br>
+       <h1 class="display-5"> Create Account</h1>
+  <hr>
+    {{form|crispy}}
+      <div class="form-group">
+        <input class="btn btn-info" type="submit" value="Create Account">
+    </div>
+  </form>
+</div>
+{% endblock %}
